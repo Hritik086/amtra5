@@ -77,8 +77,8 @@ autoclean = []
 confirmer = {}
 
 
-START_VID_URL = getenv(
-    "START_IMG_URL", "https://telegra.ph/file/ea8d580380c8037077fd6.mp4"
+START_IMG_URL = getenv(
+    "START_IMG_URL", "https://telegra.ph/file/d6e41e4ec944ac5005171.jpg"
 )
 PING_IMG_URL = getenv(
     "PING_IMG_URL", "https://telegra.ph/file/532d53336d0a30006aa16.jpg"
