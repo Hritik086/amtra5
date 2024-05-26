@@ -1,6 +1,6 @@
 import random
 import string
-
+import asyncio
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
@@ -22,7 +22,7 @@ from AnonXMusic.utils.inline import (
 )
 from AnonXMusic.utils.logger import play_logs
 from AnonXMusic.utils.stream.stream import stream
-from config import BANNED_USERS, lyrical
+from config import BANNED_USERS, lyrical, AYU
 
 
 @app.on_message(
@@ -54,7 +54,7 @@ async def play_commnd(
     fplay,
 ):
     mystic = await message.reply_text(
-        _["play_2"].format(channel) if channel else _["play_1"]
+        _["play_2"].format(channel) if channel else random.choice(AYU)
     )
     plist_id = None
     slider = None
@@ -454,7 +454,7 @@ async def play_music(client, CallbackQuery, _):
     except:
         pass
     mystic = await CallbackQuery.message.reply_text(
-        _["play_2"].format(channel) if channel else _["play_1"]
+        _["play_2"].format(channel) if channel else random.choice(AYU)
     )
     try:
         details, track_id = await YouTube.track(vidid, True)
@@ -541,7 +541,7 @@ async def play_playlists_command(client, CallbackQuery, _):
     except:
         pass
     mystic = await CallbackQuery.message.reply_text(
-        _["play_2"].format(channel) if channel else _["play_1"]
+        _["play_2"].format(channel) if channel else random.choice(AYU)
     )
     videoid = lyrical.get(videoid)
     video = True if mode == "v" else None
